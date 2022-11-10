@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: azstorageapi 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azstorageapi
+  template:
+    metadata:
+      labels:
+        app: azstorageapi 
+    spec:
+      containers:
+        - name: azstorageapi 
+          image: azstorageapiacr.azurecr.io/azstorageapi
+          ports:
+          - containerPort: 80
